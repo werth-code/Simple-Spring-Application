@@ -29,4 +29,14 @@ public class TopicController {
     public void addTopic(@RequestBody Topic topic) { // tells spring that we will be receiving a JSON version of our object
         topicService.addTopic(topic); // call on our TopicService to add it to the arrayList
     }
+
+    @PutMapping("/topics/{id}")
+    public void updateTopic(@RequestBody Topic topic, @PathVariable String id) {
+        topicService.updateTopic(id, topic);
+    }
+
+    @DeleteMapping("/topics/{id}") //allows us to delete whatever we pass into the url
+    public void deleteTopic(@PathVariable String id) { //using path variable..
+        topicService.deleteTopic(id);
+    }
 }

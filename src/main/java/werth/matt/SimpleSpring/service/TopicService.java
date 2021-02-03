@@ -1,6 +1,7 @@
 package werth.matt.SimpleSpring.service;
 
 import org.springframework.stereotype.Service;
+import werth.matt.SimpleSpring.model.Person;
 import werth.matt.SimpleSpring.model.Topic;
 
 import java.util.ArrayList;
@@ -34,4 +35,18 @@ public class TopicService {
     public void addTopic(Topic topic) { // takes in our http object and adds it to the topic arrayList
         topics.add(topic);
     }
- }
+
+    public void updateTopic(String id, Topic topic) {
+        for(int i = 0; i < topics.size(); i++) {
+            Topic top = topics.get(i);
+            if(top.getId().equals(id)) {
+                topics.set(i, topic);
+                return;
+            }
+        }
+    }
+
+    public void deleteTopic(String id) {
+        topics.removeIf(per -> per.getId().equals(id));
+    }
+}
