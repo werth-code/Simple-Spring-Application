@@ -1,10 +1,7 @@
 package werth.matt.SimpleSpring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import werth.matt.SimpleSpring.model.Person;
 import werth.matt.SimpleSpring.service.PersonService;
 
@@ -38,5 +35,10 @@ public class PersonController {
     @GetMapping("/person/{id}")
     public Person getPersonById(@PathVariable Long id) {
         return personService.getPersonById(id);
+    }
+
+    @PostMapping("/person")
+    public void addPerson(@RequestBody Person person) {
+        personService.addPerson(person);
     }
 }

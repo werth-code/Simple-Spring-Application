@@ -2,7 +2,6 @@ package werth.matt.SimpleSpring.service;
 
 import org.springframework.stereotype.Service;
 import werth.matt.SimpleSpring.model.Person;
-import werth.matt.SimpleSpring.model.Topic;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,5 +22,9 @@ public class PersonService {
 
     public Person getPersonById(Long id) {
         return people.stream().filter(person -> person.getId() == id).findFirst().get();
+    }
+
+    public void addPerson(Person person) {
+        people.add(person);
     }
 }
